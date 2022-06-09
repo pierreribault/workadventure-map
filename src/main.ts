@@ -26,7 +26,7 @@ WA.onInit().then(async () => {
     console.log(WA.room)
 
     // Update the count down every 1 second
-    let x = setInterval(function() {
+    setInterval(function() {
 
         // Get today's date and time
         let now = new Date().getTime();
