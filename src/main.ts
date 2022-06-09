@@ -17,6 +17,20 @@ WA.onInit().then(() => {
         currentPopup = WA.ui.openPopup("clockPopup","It's " + time,[]);
     })
 
+    WA.room.onEnterLayer('popupZone').subscribe(() => {
+        currentPopup = WA.ui.openPopup("zonePopup","nique ta pute de mère",[]);
+    })
+
+    WA.room.onEnterLayer('openWallZone').subscribe(() => {
+        WA.room.hideLayer('openWall');
+    })
+
+    WA.room.onEnterLayer('closeWallZone').subscribe(() => {
+        WA.room.showLayer('openWall');
+    })
+
+    WA.room.onLeaveLayer('popupZone').subscribe(closePopUp)
+
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
