@@ -320,7 +320,7 @@
                 {
                  "name":"exitUrl",
                  "type":"string",
-                 "value":"escapeGame.json"
+                 "value":"underwater.json"
                 }],
          "type":"tilelayer",
          "visible":true,
