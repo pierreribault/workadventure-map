@@ -8700,13 +8700,13 @@
         {
          "columns":6,
          "firstgid":8590,
-         "image":"..\/huge-open-space\/src\/assets\/watileset.png",
+         "image":"assets\/watileset.png",
          "imageheight":544,
          "imagewidth":204,
          "margin":1,
          "name":"watileset",
          "spacing":2,
-         "tilecount":1,
+         "tilecount":96,
          "tileheight":32,
          "tiles":[
                 {
