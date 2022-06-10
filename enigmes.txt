@@ -1,0 +1,119 @@
+Énigme cadenas #1 :
+
+682 : Un des numéros est bien placé.
+
+614 : Un des numéros est correct mais mal placé.
+
+206 : Deux numéros sont corrects mais mal placés.
+
+738 : Aucun des numéros n’est correct.
+
+780 : Un des numéros est correct mais mal placé.
+
+Quel est le code ? 
+
+Réponse : 042.
+
+
+pièce 1 : le code donné est q
+
+
+Énigme cadenas #2 :
+
+402 : Deux chiffres sont corrects mais mal placés.
+
+079 : Aucun chiffre correct.
+
+345 : Un seul chiffre correct et bien placé.
+
+870 : Un seul chiffre correct mais mal placé.
+
+293 : Un seul chiffre correct et bien placé.
+
+Quel est le code ?
+
+Réponse : 248.
+
+pièce 2 : le code donné est 9
+
+
+
+Énigme devinette #3 :
+
+Elle est dans le mot tant et au fond du jardin.
+
+Elle commence la nuit et elle finit le matin.
+
+Elle apparaît deux fois dans l’année.
+
+Qui est-ce ?
+
+Réponse : La lettre N.
+
+pièce 3 : le code donné est y
+
+
+Énigme charade #4 :
+
+Mon premier est une construction en hauteur.
+
+Mon second est le premier mot de la négation.
+
+Mon troisième est la note de musique qui suit la note FA.
+
+Mon tout est une plante.
+
+Réponse : Tournesol.
+
+pièce 4 : le code donné est 4
+
+
+Énigme charade #5 :
+
+Mon premier est la 19ème lettre de l’alphabet.
+
+Mon second est la 11ème lettre de l’alphabet.
+
+Mon troisième unit deux choses.
+
+Mon tout permet d’accéder à un étage.
+
+Réponse : Escalier.
+
+pièce 5 : le code donné est u
+
+
+Énigme littéraire #6
+
+Trente chevaux sur une colline rouge.
+
+D’abord ils mâchonnent.
+
+Puis ils frappent du pied.
+
+Ensuite ils restent immobiles.
+
+
+Réponse : Les dents.
+
+pièce 6 : le code donné est 7
+
+Énigme cadenas #7 :
+
+049 : Aucun des numéros n’est correct.
+
+317 : Un des numéros est correct mais mal placé.
+
+096 : Un des numéros est correct mais mal placé.
+
+263 : Deux numéros sont corrects mais mal placés.
+
+392 : Un des numéros est correct et bien placé.
+
+pièce 7 : le code donné est 2
+
+Réponse : 672.
+
+
+
+le code complet est : 9q72yu4
