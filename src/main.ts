@@ -1,6 +1,7 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
+import { SourceMap } from "module";
 
 console.log('Script started successfully');
 
@@ -17,8 +18,10 @@ WA.onInit().then(() => {
         currentPopup = WA.ui.openPopup("clockPopup","It's " + time,[]);
     })
 
+
+
     WA.room.onEnterLayer('popupZone').subscribe(() => {
-        currentPopup = WA.ui.openPopup("zonePopup","nique ta pute de mère",[]);
+        currentPopup = WA.ui.openPopup("zonePopup","Infos pratiques À lire attentivement Votre mission principale est de déverrouiller la porte ! Vous aurez tout au long de votre aventure plusieurs énigmes qui vous permettra d’obtenir un code à 7 chiffres. Vous aurez besoin d’un papier et d’un stylo. Il est nécessaire que vous noté sur papier chaque indice que vous aurez trouvé. Tout au long de votre parcours vous n’aurez pas le plaisir de voir l’intégralité de la carte du au faite que vous saurez dans le noir. Alors faite attentions à chaque détail. Et enfin vous avez 60min pour ouvrir la porte. Le décompte s’activera quand tous les participant seront dans la salle. Bonne aventure...",[]);
     })
 
     WA.room.onEnterLayer('openWallZone').subscribe(() => {
