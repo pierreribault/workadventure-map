@@ -80,7 +80,11 @@ WA.onInit().then(async () => {
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
         if(pneu1 && pneu2 && pneu3 && pneu4) {
-            console.log("TAMERE");
+            
+            WA.state.saveVariable('door_2', {
+                'default': true
+            });
+            WA.state.loadVariable('door_2')
         } else {
             WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
         }
@@ -95,8 +99,11 @@ WA.onInit().then(async () => {
         totalPneu.push(pneu1, pneu2, pneu3, pneu4)
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {
-            console.log("TAMERE");
+        if(pneu1 && pneu2 && pneu3 && pneu4) {            
+            WA.state.saveVariable('door_2', {
+                'default': true
+            });
+            WA.state.loadVariable('door_2')
         } else {
             WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
         }
@@ -111,8 +118,11 @@ WA.onInit().then(async () => {
         totalPneu.push(pneu1, pneu2, pneu3, pneu4)
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {
-            console.log("TAMERE");
+        if(pneu1 && pneu2 && pneu3 && pneu4) {     
+            WA.state.saveVariable('door_2', {
+                'default': true
+            });
+            WA.state.loadVariable('door_2')
         } else {
             WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
         }
@@ -127,8 +137,11 @@ WA.onInit().then(async () => {
         totalPneu.push(pneu1, pneu2, pneu3, pneu4)
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {
-            console.log("TAMERE");
+        if(pneu1 && pneu2 && pneu3 && pneu4) {  
+            WA.state.saveVariable('door_2', {
+                'default': true
+            });
+            WA.state.loadVariable('door_2')
         } else {
             WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
         }
