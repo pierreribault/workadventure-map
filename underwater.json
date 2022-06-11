@@ -3874,7 +3874,7 @@
                         {
                          "name":"default",
                          "type":"bool",
-                         "value":true
+                         "value":false
                         }, 
                         {
                          "name":"door",
