@@ -69,10 +69,6 @@ WA.onInit().then(async () => {
     }));
 
 
-    WA.room.onEnterLayer('start').subscribe(() => {
-        currentPopup = WA.ui.openPopup("startingZone", "Bienvenue sur notre carte Escape game \n le but est de sortir de retourner sur l'autre map, \n Vous n'aurez pas plus d'indices. GLHF", [])
-    })
-
     WA.room.onEnterLayer('guess').subscribe(() => {
         currentPopup = WA.ui.openPopup("guess1", "Une fois rentré vous devrez trouver le code pour ressortir.", []);;
     })
