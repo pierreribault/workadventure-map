@@ -92,6 +92,12 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer('n3').subscribe(() => {
         currentPopup = WA.ui.openPopup("n3", "Elle apparaît deux fois dans l’année.", []);;
     })
+    WA.room.onEnterLayer('a1').subscribe(() => {
+        currentPopup = WA.ui.openPopup("a1", "Cette étape sera plus dur", []);;
+    })
+    WA.room.onEnterLayer('a2').subscribe(() => {
+        currentPopup = WA.ui.openPopup("a2", "Et oui, Bon courage, 🤡", []);;
+    })
 
     WA.room.onEnterLayer('firstMessage').subscribe(() => {
         WA.chat.sendChatMessage("q", "Maitre du jeu");
@@ -131,6 +137,10 @@ WA.onInit().then(async () => {
     WA.room.onLeaveLayer('n1').subscribe(closePopUp)
     WA.room.onLeaveLayer('n2').subscribe(closePopUp)
     WA.room.onLeaveLayer('n3').subscribe(closePopUp)
+    WA.room.onLeaveLayer('a1').subscribe(closePopUp)
+
+    WA.room.onLeaveLayer('a2').subscribe(closePopUp)
+
     WA.room.onLeaveLayer('start').subscribe(closePopUp)
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
 
