@@ -45,6 +45,29 @@ WA.onInit().then(async () => {
         }
     }));
 
+    WA.chat.onChatMessage((message => {
+        if(message == "🤡") {
+            WA.room.hideLayer('door_closed5');
+        }
+    }));
+    WA.chat.onChatMessage((message => {
+        if(message == "clown") {
+            WA.chat.sendChatMessage('Tu connais les emojis ?', 'Maitre du jeu');
+        }
+    }));
+
+    WA.chat.onChatMessage((message => {
+        if(message == "q9y4") {
+            WA.chat.sendChatMessage('As-tu lu mon dernier message ?!', 'Maitre du jeu');
+        }
+    }));
+
+    WA.chat.onChatMessage((message => {
+        if(message == "17i25d") {
+           WA.room.hideLayer('finalDoor');
+        }
+    }));
+
 
     WA.room.onEnterLayer('start').subscribe(() => {
         currentPopup = WA.ui.openPopup("startingZone", "Bienvenue sur notre carte Escape game \n le but est de sortir de retourner sur l'autre map, \n Vous n'aurez pas plus d'indices. GLHF", [])
@@ -98,6 +121,13 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer('a2').subscribe(() => {
         currentPopup = WA.ui.openPopup("a2", "Et oui, Bon courage, 🤡", []);;
     })
+    WA.room.onEnterLayer('a3').subscribe(() => {
+        currentPopup = WA.ui.openPopup("a3", "🤡", []);;
+    })
+
+    WA.room.onEnterLayer('lastOne').subscribe(() => {
+        currentPopup = WA.ui.openPopup("lastOne", "L'alphabet et les chiffres sont inversé", []);;
+    })
 
     WA.room.onEnterLayer('firstMessage').subscribe(() => {
         WA.chat.sendChatMessage("q", "Maitre du jeu");
@@ -107,6 +137,9 @@ WA.onInit().then(async () => {
     })
     WA.room.onEnterLayer('thirdMessage').subscribe(() => {
         WA.chat.sendChatMessage("y", "Maitre du jeu");
+    })
+    WA.room.onEnterLayer('fourthMessage').subscribe(() => {
+        WA.chat.sendChatMessage("4", "Maitre du jeu");
     })
 
     WA.room.onEnterLayer('openWallZone').subscribe(() => {
@@ -123,6 +156,10 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer('door_openZone4').subscribe(() => {
         WA.room.showLayer('door_closed4');
     })
+
+    WA.room.onEnterLayer('door_openZone5').subscribe(() => {
+        WA.room.showLayer('door_closed5');
+    })
     WA.room.onLeaveLayer('guess').subscribe(closePopUp)
     WA.room.onLeaveLayer('first').subscribe(closePopUp)
     WA.room.onLeaveLayer('second').subscribe(closePopUp)
@@ -138,9 +175,9 @@ WA.onInit().then(async () => {
     WA.room.onLeaveLayer('n2').subscribe(closePopUp)
     WA.room.onLeaveLayer('n3').subscribe(closePopUp)
     WA.room.onLeaveLayer('a1').subscribe(closePopUp)
-
     WA.room.onLeaveLayer('a2').subscribe(closePopUp)
-
+    WA.room.onLeaveLayer('a3').subscribe(closePopUp)
+    WA.room.onLeaveLayer('lastOne').subscribe(closePopUp)
     WA.room.onLeaveLayer('start').subscribe(closePopUp)
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
 
