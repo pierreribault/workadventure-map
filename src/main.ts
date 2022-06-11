@@ -80,7 +80,7 @@ WA.onInit().then(async () => {
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
         if(pneu1 && pneu2 && pneu3 && pneu4) {
-            
+            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )
             WA.state.saveVariable('door_2', {
                 'default': true
             });
@@ -99,7 +99,8 @@ WA.onInit().then(async () => {
         totalPneu.push(pneu1, pneu2, pneu3, pneu4)
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {            
+        if(pneu1 && pneu2 && pneu3 && pneu4) {    
+            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )        
             WA.state.saveVariable('door_2', {
                 'default': true
             });
@@ -118,7 +119,8 @@ WA.onInit().then(async () => {
         totalPneu.push(pneu1, pneu2, pneu3, pneu4)
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {     
+        if(pneu1 && pneu2 && pneu3 && pneu4) {
+            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )  
             WA.state.saveVariable('door_2', {
                 'default': true
             });
@@ -138,6 +140,8 @@ WA.onInit().then(async () => {
         let pneuOk = totalPneu.filter(Boolean)
         let pneuLeft = totalPneu.length - pneuOk.length;
         if(pneu1 && pneu2 && pneu3 && pneu4) {  
+            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )
+
             WA.state.saveVariable('door_2', {
                 'default': true
             });
@@ -150,7 +154,7 @@ WA.onInit().then(async () => {
 
 
     WA.room.onEnterLayer('guess').subscribe(() => {
-        currentPopup = WA.ui.openPopup("guess1", "Une fois rentré vous devrez trouver le code pour ressortir.", []);;
+        currentPopup = WA.ui.openPopup("guess1", "L'océan est sale, nettoyez-le.", []);;
     })
     WA.room.onEnterLayer('first').subscribe(() => {
         currentPopup = WA.ui.openPopup("first", "682 : Un des numéros est bien placé.", []);;
