@@ -6,6 +6,7 @@ console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
+
 // Waiting for the API to be ready
 WA.onInit().then(async () => {
     console.log('Scripting API ready');
@@ -67,6 +68,72 @@ WA.onInit().then(async () => {
            WA.room.hideLayer('finalDoor');
         }
     }));
+
+    WA.state.onVariableChange("pneu1").subscribe((data: unknown) => {
+        let totalPneu: any = [];
+        WA.state.saveVariable("pneu1", data);
+        let pneu1 = WA.state.loadVariable("pneu1");
+        let pneu2 = WA.state.loadVariable("pneu2");
+        let pneu3 = WA.state.loadVariable("pneu3");
+        let pneu4 = WA.state.loadVariable("pneu4");       
+        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
+        let pneuOk = totalPneu.filter(Boolean)
+        let pneuLeft = totalPneu.length - pneuOk.length;
+        if(pneu1 && pneu2 && pneu3 && pneu4) {
+            console.log("TAMERE");
+        } else {
+            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
+        }
+    })
+    WA.state.onVariableChange("pneu2").subscribe((data: unknown) => {
+        let totalPneu: any = [];
+        WA.state.saveVariable("pneu2", data);
+        let pneu1 = WA.state.loadVariable("pneu1");
+        let pneu2 = WA.state.loadVariable("pneu2");
+        let pneu3 = WA.state.loadVariable("pneu3");
+        let pneu4 = WA.state.loadVariable("pneu4");       
+        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
+        let pneuOk = totalPneu.filter(Boolean)
+        let pneuLeft = totalPneu.length - pneuOk.length;
+        if(pneu1 && pneu2 && pneu3 && pneu4) {
+            console.log("TAMERE");
+        } else {
+            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
+        }
+    })
+    WA.state.onVariableChange("pneu3").subscribe((data: unknown) => {
+        let totalPneu: any = [];
+        WA.state.saveVariable("pneu3", data);
+        let pneu1 = WA.state.loadVariable("pneu1");
+        let pneu2 = WA.state.loadVariable("pneu2");
+        let pneu3 = WA.state.loadVariable("pneu3");
+        let pneu4 = WA.state.loadVariable("pneu4");       
+        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
+        let pneuOk = totalPneu.filter(Boolean)
+        let pneuLeft = totalPneu.length - pneuOk.length;
+        if(pneu1 && pneu2 && pneu3 && pneu4) {
+            console.log("TAMERE");
+        } else {
+            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
+        }
+    })
+    WA.state.onVariableChange("pneu4").subscribe((data: unknown) => {
+        let totalPneu: any = [];
+        WA.state.saveVariable("pneu4", data);
+        let pneu1 = WA.state.loadVariable("pneu1");
+        let pneu2 = WA.state.loadVariable("pneu2");
+        let pneu3 = WA.state.loadVariable("pneu3");
+        let pneu4 = WA.state.loadVariable("pneu4");       
+        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
+        let pneuOk = totalPneu.filter(Boolean)
+        let pneuLeft = totalPneu.length - pneuOk.length;
+        if(pneu1 && pneu2 && pneu3 && pneu4) {
+            console.log("TAMERE");
+        } else {
+            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
+        }
+    })
+
 
 
     WA.room.onEnterLayer('guess').subscribe(() => {

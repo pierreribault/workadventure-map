@@ -2248,6 +2248,11 @@
          "opacity":1,
          "properties":[
                 {
+                 "name":"closeTriggerMessage",
+                 "type":"string",
+                 "value":""
+                }, 
+                {
                  "name":"doorVariable",
                  "type":"string",
                  "value":"pneu1"
@@ -2329,6 +2334,11 @@
          "name":"pneu4Zone",
          "opacity":1,
          "properties":[
+                {
+                 "name":"closeTriggerMessage ",
+                 "type":"string",
+                 "value":""
+                }, 
                 {
                  "name":"doorVariable",
                  "type":"string",
@@ -2412,6 +2422,11 @@
          "opacity":1,
          "properties":[
                 {
+                 "name":"closeTriggerMessage ",
+                 "type":"string",
+                 "value":""
+                }, 
+                {
                  "name":"doorVariable",
                  "type":"string",
                  "value":"pneu2"
@@ -2493,6 +2508,11 @@
          "name":"pneu3Zone",
          "opacity":1,
          "properties":[
+                {
+                 "name":"closeTriggerMessage ",
+                 "type":"string",
+                 "value":""
+                }, 
                 {
                  "name":"doorVariable",
                  "type":"string",
@@ -4640,7 +4660,7 @@
                         {
                          "name":"closeLayer",
                          "type":"string",
-                         "value":""
+                         "value":"pneu4Zone"
                         }, 
                         {
                          "name":"default",
@@ -4678,7 +4698,7 @@
                         {
                          "name":"closeLayer",
                          "type":"string",
-                         "value":""
+                         "value":"pneu1Zone"
                         }, 
                         {
                          "name":"default",
@@ -4716,7 +4736,7 @@
                         {
                          "name":"closeLayer",
                          "type":"string",
-                         "value":""
+                         "value":"pneu2Zone"
                         }, 
                         {
                          "name":"default",
@@ -4754,7 +4774,7 @@
                         {
                          "name":"closeLayer",
                          "type":"string",
-                         "value":""
+                         "value":"pneu3Zone"
                         }, 
                         {
                          "name":"default",
