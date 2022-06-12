@@ -11,41 +11,62 @@ let currentPopup: any = undefined;
 WA.onInit().then(async () => {
     console.log('Scripting API ready');
     console.log('Player tags: ', WA.player)
-
+    
     function addHours(numOfHours: number, date = new Date()): Date {
         date.setTime(date.getTime() + numOfHours * 60 * 60 * 1000);
-
+        
         return date;
     }
-
+    
     const start_time = addHours(1);
-
+    
     let minutes = 0;
     let seconds = 0;
+    
+    type VisiblePosition = {
+        x: number,
+        y: number,
+    }
+    
+    let visibles: VisiblePosition[] = [];
+    let door_amphi = false;
+    let door_suite = false;
+    
 
-    console.log(WA.player)
-    console.log(WA.room + "test")
+    const myWebsite = await WA.ui.website.open({
+        url: "https://e.ggtimer.com/1heures",
+        position: {
+            vertical: "top",
+            horizontal: "middle",
+        },
+        size: {
+            height: "100px",
+            width: "600px",
+        },
+    });
 
+    myWebsite.position.vertical = "top";
+    
     // Update the count down every 1 second
     setInterval(function () {
-
+        
         // Get today's date and time
         let now = new Date().getTime();
-
+        
         // Find the distance between now and the count down date
         let distance = start_time.getTime() - now;
-
+        
         // Time calculations for days, hours, minutes and seconds
         minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         seconds = Math.floor((distance % (1000 * 60)) / 1000);
     })
-
+    
     WA.chat.onChatMessage((message => {
         if(message == "N") {
             WA.room.hideLayer('door_closed4');
         }
     }));
-
+    
     WA.chat.onChatMessage((message => {
         if(message == "🤡") {
             WA.room.hideLayer('door_closed5');
@@ -56,80 +77,20 @@ WA.onInit().then(async () => {
             WA.chat.sendChatMessage('Tu connais les emojis ?', 'Maitre du jeu');
         }
     }));
-
+    
     WA.chat.onChatMessage((message => {
         if(message == "q9y4") {
             WA.chat.sendChatMessage('As-tu lu mon dernier message ?!', 'Maitre du jeu');
         }
     }));
-
+    
     WA.chat.onChatMessage((message => {
         if(message == "17i25d") {
-           WA.room.hideLayer('finalDoor');
+            WA.room.hideLayer('finalDoor');
         }
     }));
-
-    WA.state.onVariableChange("pneu1").subscribe((data: unknown) => {
-        let totalPneu: any = [];
-        WA.state.saveVariable("pneu1", data);
-        let pneu1 = WA.state.loadVariable("pneu1");
-        let pneu2 = WA.state.loadVariable("pneu2");
-        let pneu3 = WA.state.loadVariable("pneu3");
-        let pneu4 = WA.state.loadVariable("pneu4");       
-        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
-        let pneuOk = totalPneu.filter(Boolean)
-        let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {
-            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )
-            WA.state.saveVariable('door_2', {
-                'default': true
-            });
-            WA.state.loadVariable('door_2')
-        } else {
-            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
-        }
-    })
-    WA.state.onVariableChange("pneu2").subscribe((data: unknown) => {
-        let totalPneu: any = [];
-        WA.state.saveVariable("pneu2", data);
-        let pneu1 = WA.state.loadVariable("pneu1");
-        let pneu2 = WA.state.loadVariable("pneu2");
-        let pneu3 = WA.state.loadVariable("pneu3");
-        let pneu4 = WA.state.loadVariable("pneu4");       
-        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
-        let pneuOk = totalPneu.filter(Boolean)
-        let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {    
-            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )        
-            WA.state.saveVariable('door_2', {
-                'default': true
-            });
-            WA.state.loadVariable('door_2')
-        } else {
-            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
-        }
-    })
-    WA.state.onVariableChange("pneu3").subscribe((data: unknown) => {
-        let totalPneu: any = [];
-        WA.state.saveVariable("pneu3", data);
-        let pneu1 = WA.state.loadVariable("pneu1");
-        let pneu2 = WA.state.loadVariable("pneu2");
-        let pneu3 = WA.state.loadVariable("pneu3");
-        let pneu4 = WA.state.loadVariable("pneu4");       
-        totalPneu.push(pneu1, pneu2, pneu3, pneu4)
-        let pneuOk = totalPneu.filter(Boolean)
-        let pneuLeft = totalPneu.length - pneuOk.length;
-        if(pneu1 && pneu2 && pneu3 && pneu4) {
-            WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )  
-            WA.state.saveVariable('door_2', {
-                'default': true
-            });
-            WA.state.loadVariable('door_2')
-        } else {
-            WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
-        }
-    })
-    WA.state.onVariableChange("pneu4").subscribe((data: unknown) => {
+    
+    let triggerPneu = function(data: unknown) {
         let totalPneu: any = [];
         WA.state.saveVariable("pneu4", data);
         let pneu1 = WA.state.loadVariable("pneu1");
@@ -141,18 +102,63 @@ WA.onInit().then(async () => {
         let pneuLeft = totalPneu.length - pneuOk.length;
         if(pneu1 && pneu2 && pneu3 && pneu4) {  
             WA.chat.sendChatMessage("Une porte vient de s'ouvrir ", "Maitre du jeu" )
-
+            
             WA.state.saveVariable('door_2', {
                 'default': true
             });
+            
             WA.state.loadVariable('door_2')
+
+            if (door_suite == false) {
+                WA.camera.set(39 * 32, 36 * 32, undefined, undefined, false, true);
+                door_suite = true
+            }
+            
+            for (let x = 0; x < 40; x++) {
+                for (let y = 0; y < 30; y++) {
+                    WA.room.setTiles([
+                        { x: x, y: y, tile: null, layer: "darkness" },
+                    ]);
+                    
+                    visibles.push({ x: x, y: y});
+                }
+            }
+            
+            for (let x = 28; x < 40; x++) {
+                for (let y = 30; y < 60; y++) {
+                    WA.room.setTiles([
+                        { x: x, y: y, tile: null, layer: "darkness" },
+                    ]);
+                    
+                    visibles.push({ x: x, y: y});
+                }
+            }
+            
+            for (let x = 0; x < 40; x++) {
+                for (let y = 54; y < 60; y++) {
+                    WA.room.setTiles([
+                        { x: x, y: y, tile: null, layer: "darkness" },
+                    ]);
+                    
+                    visibles.push({ x: x, y: y});
+                }
+            }
         } else {
             WA.chat.sendChatMessage("Il reste " + pneuLeft + "/" + totalPneu.length + " pneus à ramasser ", "Maitre du jeu" )
         }
+    }
+
+    WA.state.onVariableChange("pneu1").subscribe(triggerPneu);
+    WA.state.onVariableChange("pneu2").subscribe(triggerPneu);
+    WA.state.onVariableChange("pneu3").subscribe(triggerPneu);
+    WA.state.onVariableChange("pneu4").subscribe(triggerPneu);
+    
+    
+    WA.room.onEnterLayer('trigger_timer_amphi').subscribe(() => {
+        currentPopup = WA.ui.openPopup("timer_amphi", "Temps restant: " + minutes + " minutes " + seconds + " secondes", [])
+        console.log("test");
     })
-
-
-
+    
     WA.room.onEnterLayer('guess').subscribe(() => {
         currentPopup = WA.ui.openPopup("guess1", "L'océan est sale, nettoyez-le.", []);;
     })
@@ -204,14 +210,11 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer('a3').subscribe(() => {
         currentPopup = WA.ui.openPopup("a3", "🤡", []);;
     })
-
+    
     WA.room.onEnterLayer('lastOne').subscribe(() => {
         currentPopup = WA.ui.openPopup("lastOne", "L'alphabet et les chiffres sont inversé", []);;
     })
-
-    WA.room.onEnterLayer('firstMessage').subscribe(() => {
-        WA.chat.sendChatMessage("q", "Maitre du jeu");
-    })
+    
     WA.room.onEnterLayer('secondMessage').subscribe(() => {
         WA.chat.sendChatMessage("9", "Maitre du jeu");
     })
@@ -221,22 +224,22 @@ WA.onInit().then(async () => {
     WA.room.onEnterLayer('fourthMessage').subscribe(() => {
         WA.chat.sendChatMessage("4", "Maitre du jeu");
     })
-
+    
     WA.room.onEnterLayer('openWallZone').subscribe(() => {
         WA.room.hideLayer('openWall');
     })
-
+    
     WA.room.onEnterLayer('closeWallZone').subscribe(() => {
         WA.room.showLayer('openWall');
     })
     WA.room.onEnterLayer('clockZone').subscribe(() => {
         currentPopup = WA.ui.openPopup("clockPopup", "Time left: " + minutes + " " + seconds, []);;
     })
-
+    
     WA.room.onEnterLayer('door_openZone4').subscribe(() => {
         WA.room.showLayer('door_closed4');
     })
-
+    
     WA.room.onEnterLayer('door_openZone5').subscribe(() => {
         WA.room.showLayer('door_closed5');
     })
@@ -260,66 +263,89 @@ WA.onInit().then(async () => {
     WA.room.onLeaveLayer('lastOne').subscribe(closePopUp)
     WA.room.onLeaveLayer('start').subscribe(closePopUp)
     WA.room.onLeaveLayer('clockZone').subscribe(closePopUp)
-
-    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
-    bootstrapExtra().then(async () => {
-        console.log('Scripting API Extra ready');
-
-        WA.room.getTiledMap().then(async (map) => {
-            let width = map.width;
-            let height = map.height;
-
-            for (let x = 0; x < width; x++) {
-                for (let y = 0; y < height; y++) {
+    WA.room.onLeaveLayer('trigger_timer_amphi').subscribe(closePopUp)
+    
+    WA.room.getTiledMap().then(async (map) => {
+        let width = map.width;
+        let height = map.height;
+        
+        for (let x = 0; x < width; x++) {
+            for (let y = 0; y < height; y++) {
+                WA.room.setTiles([
+                    { x: x, y: y, tile: "dark", layer: "darkness" },
+                ]);
+            }
+        }
+        
+        let playerX = 0;
+        let playerY = 0;
+        
+        WA.player.getPosition().then((position) => {
+            playerX = Math.round(position.x / 32);
+            playerY = Math.round(position.y / 32);
+            
+            for (let x = 0; x < 5; x++) {
+                for (let y = 0; y < 5; y++) {
                     WA.room.setTiles([
-                        { x: x, y: y, tile: "dark", layer: "darkness" },
+                        { x: playerX - 2 + x, y: playerY - 2 + y, tile: null, layer: "darkness" },
                     ]);
                 }
             }
-
-            let playerX = 0;
-            let playerY = 0;
-
+        });
+        
+        WA.player.onPlayerMove(async () => {
             WA.player.getPosition().then((position) => {
-                playerX = Math.round(position.x / 32);
-                playerY = Math.round(position.y / 32);
-
-                for (let x = 0; x < 5; x++) {
-                    for (let y = 0; y < 5; y++) {
-                        WA.room.setTiles([
-                            { x: playerX - 2 + x, y: playerY - 2 + y, tile: null, layer: "darkness" },
-                        ]);
-                    }
-                }
-            });
-
-            WA.player.onPlayerMove(async () => {
-                WA.player.getPosition().then((position) => {
-                    if (playerX != Math.round(position.x / 32) || playerY != Math.round(position.y / 32)) {
-                        for (let x = 0; x < 5; x++) {
-                            for (let y = 0; y < 5; y++) {
+                if (playerX != Math.round(position.x / 32) || playerY != Math.round(position.y / 32)) {
+                    
+                    for (let x = 0; x < 5; x++) {
+                        for (let y = 0; y < 5; y++) {
+                            if (! visibles.some(position => position.x == playerX - 2 + x && position.y == playerY - 2 + y)) {
                                 WA.room.setTiles([
                                     { x: playerX - 2 + x, y: playerY - 2 + y, tile: "dark", layer: "darkness" },
                                 ]);
                             }
                         }
-
-                        playerX = Math.round(position.x / 32);
-                        playerY = Math.round(position.y / 32);
-
-                        for (let x = 0; x < 5; x++) {
-                            for (let y = 0; y < 5; y++) {
-                                WA.room.setTiles([
-                                    { x: playerX - 2 + x, y: playerY - 2 + y, tile: null, layer: "darkness" },
-                                ]);
-                            }
+                    }
+                    
+                    playerX = Math.round(position.x / 32);
+                    playerY = Math.round(position.y / 32);
+                    
+                    for (let x = 0; x < 5; x++) {
+                        for (let y = 0; y < 5; y++) {
+                            WA.room.setTiles([
+                                { x: playerX - 2 + x, y: playerY - 2 + y, tile: null, layer: "darkness" },
+                            ]);
                         }
                     }
-                });
+                }
             });
         });
+    });
+    
+    WA.state.onVariableChange('door_amphi').subscribe((data: unknown) => {
+        if (data == true) {
+            if (door_amphi == false) {
+                WA.camera.set(13 * 32, 30 * 32, undefined, undefined, false, true);
+                door_amphi = true
+            }
+            
+            for (let x = 0; x < 28; x++) {
+                for (let y = 30; y < 53; y++) {
+                    WA.room.setTiles([
+                        { x: x, y: y, tile: null, layer: "darkness" },
+                    ]);
+                    
+                    visibles.push({ x: x, y: y});
+                }
+            }
+        }
+    });
+    
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra().then(async () => {
+        console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
-
+    
 }).catch(e => console.error(e));
 
 function closePopUp() {
