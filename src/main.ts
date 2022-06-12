@@ -272,7 +272,7 @@ WA.onInit().then(async () => {
         for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
                 WA.room.setTiles([
-                    { x: x, y: y, tile: "dark", layer: "darkness" },
+                    { x: x, y: y, tile: 6461, layer: "darkness" },
                 ]);
             }
         }
@@ -301,7 +301,7 @@ WA.onInit().then(async () => {
                         for (let y = 0; y < 5; y++) {
                             if (! visibles.some(position => position.x == playerX - 2 + x && position.y == playerY - 2 + y)) {
                                 WA.room.setTiles([
-                                    { x: playerX - 2 + x, y: playerY - 2 + y, tile: "dark", layer: "darkness" },
+                                    { x: playerX - 2 + x, y: playerY - 2 + y, tile: 6461, layer: "darkness" },
                                 ]);
                             }
                         }
