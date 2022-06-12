@@ -79,13 +79,13 @@ WA.onInit().then(async () => {
     }));
     
     WA.chat.onChatMessage((message => {
-        if(message == "q9y4") {
+        if(message == "9y4") {
             WA.chat.sendChatMessage('As-tu lu mon dernier message ?!', 'Maitre du jeu');
         }
     }));
     
     WA.chat.onChatMessage((message => {
-        if(message == "17i25d") {
+        if(message == "i25d") {
             WA.room.hideLayer('finalDoor');
         }
     }));
